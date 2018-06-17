@@ -1,0 +1,12 @@
+{
+    "attribution": "", 
+    "description": "", 
+    "center": "140.8314,40.7119,10", 
+    "bounds": "122.9,20.4,154,45.6", 
+    "minzoom": "12", 
+    "version": "1.0.0", 
+    "template": "{{#__location__}}{{/__location__}}{{#__teaser__}}{{/__teaser__}}{{#__full__}}{{{oid_1}}} {{{m3cd}}} {{{valid}}} {{{cl3}}} {{{cl6}}} {{{kc}}} {{{sc}}} {{{rpad}}} {{{rara}}} {{{rorc}}} {{{rtree}}} {{{rfor}}} {{{rabd}}} {{{rbuil}}} {{{rtra}}} {{{run}}} {{{rwat}}} {{{rcoa}}} {{{rsea}}}{{/__full__}}", 
+    "maxzoom": "12", 
+    "legend": "", 
+    "name": "RULIS"
+}

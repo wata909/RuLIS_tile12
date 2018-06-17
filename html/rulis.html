@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>RuLIS地図</title>
+    <link rel="stylesheet" href="css/ol.css" type="text/css">
+    <link rel="stylesheet" href="css/ol3-layerswitcher.css" />
+    <link rel="stylesheet" href="css/ol3-popup.css" />
+    <link rel="stylesheet" href="css/rulis.css" type="text/css">
+    <script src="js/ol.js"></script>
+    <script src="js/ol3-layerswitcher.js"></script>
+    <script src="js/ol3-popup.js"></script>
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <div id="tooltip"></div>
+
+
+<!--凡例-->
+<div id='legend'>
+<div id='legend-close'>×</div>
+<h1>RuLISによる農業景観類型結果（2002バージョン）　凡例</h1>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th class="level1">クラス１</th><th class="level2">クラス２</th><th class="level3">クラス３</th><th class="level4">クラス４</th><th class="level5">クラス５</th><th class="level6">クラス６</th><th class="level7">CODE</th></tr></thead><tbody>
+ <tr><td rowspan="32">山地・丘陵地景観</td><td rowspan="16">多雪・少日射量</td><td rowspan="8" id="cl3_1">1. 大中起伏山地・豪雪</td><td rowspan="4">温量指数（15～55）、夏季少日射量</td><td rowspan="2">高標高地、日射量中程度、（ポドソル土）</td><td>湿潤、谷密度大</td><td id="cl6_11">11</td></tr>
+ <tr><td>過湿</td><td id="cl6_12">12</td></tr>
+ <tr><td rowspan="2">夏期少雨、褐色森林土</td><td>冬期降水量少、降水量少</td><td id="cl6_13">13</td></tr>
+ <tr><td>降水量1600～2000</td><td id="cl6_14">14</td></tr>
+ <tr><td rowspan="4">冬期降水量多</td><td rowspan="2">冬期降水量多、（深成岩類）</td><td>標高1000以上、過湿</td><td id="cl6_15">15</td></tr>
+ <tr><td>標高1000以下、適湿</td><td id="cl6_16">16</td></tr>
+ <tr><td rowspan="2">夏期少雨、火山性岩石、温量指数（55～75)</td><td>夏期やや少雨</td><td id="cl6_17">17</td></tr>
+ <tr><td>標高1000以上</td><td id="cl6_18">18</td></tr>
+ <tr><td rowspan="8" id="cl3_2">2. 多雪、夏期少雨</td><td rowspan="4">小起伏山地、豪雪、褐色森林土壌</td><td rowspan="2">冬期降水量少、温量指数（15～55?)</td><td>温量指数55～、多雪</td><td id="cl6_21">21</td></tr>
+ <tr><td>温量指数～55、豪雪</td><td id="cl6_22">22</td></tr>
+ <tr><td rowspan="2">冬期降水量中程度</td><td>小起伏山地、火山性岩石</td><td id="cl6_23">23</td></tr>
+ <tr><td>起伏量やや小</td><td id="cl6_24">24</td></tr>
+ <tr><td rowspan="4">多雪、降水量少</td><td rowspan="2">夏期少雨、褐色森林土、起伏量100～200</td><td>起伏量100-200、道路なし</td><td id="cl6_25">25</td></tr>
+ <tr><td>道路あり、砂礫・岩石台地</td><td id="cl6_26">26</td></tr>
+ <tr><td rowspan="2">夏期やや少雨、黒ボク土</td><td>温量指数55～、夏期日射中</td><td id="cl6_27">27</td></tr>
+ <tr><td>温量指数～55、夏期日射少</td><td id="cl6_28">28</td></tr>
+ <tr><td rowspan="16">&nbsp;</td><td rowspan="8" id="cl3_3">3. 大中起伏山地、無積雪</td><td rowspan="4">大中起伏山地</td><td rowspan="2">夏期多雨、半固結－固結堆積物</td><td>降水量やや多</td><td id="cl6_31">31</td></tr>
+ <tr><td>降水量多、夏期多雨</td><td id="cl6_32">32</td></tr>
+ <tr><td rowspan="2">夏期降水量中程度、火山性岩石</td><td>大中起伏山地、褐色森林土</td><td id="cl6_33">33</td></tr>
+ <tr><td>火山地、黒ボク土</td><td id="cl6_34">34</td></tr>
+ <tr><td rowspan="4">日射量多、夏季日射量多</td><td rowspan="2">半固結－固結堆積物、小起伏山地、道路なし</td><td>夏期多雨</td><td id="cl6_35">35</td></tr>
+ <tr><td>冬期少雨</td><td id="cl6_36">36</td></tr>
+ <tr><td rowspan="2">火山性岩石（黒ボク土）</td><td>日射量やや多</td><td id="cl6_37">37</td></tr>
+ <tr><td>日射量多</td><td id="cl6_38">38</td></tr>
+ <tr><td rowspan="8" id="cl3_4">4.</td><td rowspan="4">湿潤</td><td rowspan="2">冬期降水量少、降水量中程度</td><td>温量指数100～、積雪なし</td><td id="cl6_41">41</td></tr>
+ <tr><td>温量指数～100</td><td id="cl6_42">42</td></tr>
+ <tr><td rowspan="2">冬期降水量多、降水量やや多</td><td>小起伏山地、夏緑林</td><td id="cl6_43">43</td></tr>
+ <tr><td>低地土、湿生草原・水田</td><td id="cl6_44">44</td></tr>
+ <tr><td rowspan="4">適湿、夏期降水量少</td><td rowspan="2">夏期日射量中程度、温量指数（100以下）</td><td>年降水量やや少、道路なし</td><td id="cl6_45">45</td></tr>
+ <tr><td>年降水量少</td><td id="cl6_46">46</td></tr>
+ <tr><td rowspan="2">夏期日射量大、温量指数（100～120)</td><td>積雪なし</td><td id="cl6_47">47</td></tr>
+ <tr><td>積雪中程度</td><td id="cl6_48">48</td></tr>
+ <tr><td rowspan="28">台地・低地景観</td><td rowspan="16">&nbsp;</td><td rowspan="8" id="cl3_5">5. 多雪、湿潤</td><td rowspan="4">温量指数（55～75)、 夏期少雨、日射量少</td><td rowspan="2">温量指数（15～55)</td><td>三角州性低地、夏期少雨</td><td id="cl6_51">51</td></tr>
+ <tr><td>ローム台地</td><td id="cl6_52">52</td></tr>
+ <tr><td rowspan="2">温量指数（55～75)、低地土</td><td>冬期降水量少、降水量少</td><td id="cl6_53">53</td></tr>
+ <tr><td>扇状地性低地</td><td id="cl6_54">54</td></tr>
+ <tr><td rowspan="4">温量指数（100～120)</td><td rowspan="2">夏期日射量大、標高50以下</td><td>年降水量やや少</td><td id="cl6_55">55</td></tr>
+ <tr><td>温量指数100～、冬期多雨</td><td id="cl6_56">56</td></tr>
+ <tr><td rowspan="2">夏期日射量中</td><td>夏期降水量やや少</td><td id="cl6_57">57</td></tr>
+ <tr><td>温量指数100～</td><td id="cl6_58">58</td></tr>
+ <tr><td rowspan="8" id="cl3_6">6. 無積雪、適湿</td><td rowspan="4">積雪あり</td><td rowspan="2">温量指数（85～100)、標高50以下</td><td>丘陵地、市街地その他</td><td id="cl6_61">61</td></tr>
+ <tr><td>湿生草本・水田雑草群落</td><td id="cl6_62">62</td></tr>
+ <tr><td rowspan="2">温量指数（100～120)</td><td>降水量中、冬期やや少雨</td><td id="cl6_63">63</td></tr>
+ <tr><td>冬期少雨、水田雑草群落</td><td id="cl6_64">64</td></tr>
+ <tr><td rowspan="4">積雪なし、谷密度5以下</td><td rowspan="2">未固結堆積物、低地土</td><td>温量指数120～、市街地</td><td id="cl6_65">65</td></tr>
+ <tr><td>温量指数～120、水田雑草</td><td id="cl6_66">66</td></tr>
+ <tr><td rowspan="2">火山性岩石、ローム台地、黒ボク土</td><td>道路密度少、畑地雑草群落</td><td id="cl6_67">67</td></tr>
+ <tr><td>道路密度多、市街地その他</td><td id="cl6_68">68</td></tr>
+ <tr><td rowspan="12">無積雪、多日射量、温量指数(120～130)</td><td rowspan="6" id="cl3_7">7.</td><td rowspan="2">積雪あり、市街地その他、土壌（その他</td><td rowspan="2">&nbsp;</td><td>(??)</td><td id="cl6_71">71</td></tr>
+ <tr><td>土壊（その他）、市街地</td><td id="cl6_72">72</td></tr>
+ <tr><td rowspan="4">積雪なし、畑地、水田</td><td rowspan="2">年降水量多、夏期降水量多</td><td>黒ボク土、ローム台地、畑地</td><td id="cl6_73">73</td></tr>
+ <tr><td>低地土、低標高、水出</td><td id="cl6_74">74</td></tr>
+ <tr><td rowspan="2">年降水量中、夏期降水量中</td><td>低起伏量、水田雑草群落</td><td id="cl6_75">75</td></tr>
+ <tr><td>市街地、畑地雑草群落</td><td id="cl6_76">76</td></tr>
+ <tr><td rowspan="6" id="cl3_8">8. 適湿、夏期少雨</td><td rowspan="2">起伏量少、未固結堆積物、道路密度多</td><td rowspan="2">&nbsp;</td><td>土壌（その他）、市街地</td><td id="cl6_81">81</td></tr>
+ <tr><td>低地上、水田雑草群落</td><td id="cl6_82">82</td></tr>
+ <tr><td rowspan="4">&nbsp;</td><td rowspan="2">未熟土、（標高50以下）</td><td>温量指数～130</td><td id="cl6_83">83</td></tr>
+ <tr><td>温量指数130～</td><td id="cl6_84">84</td></tr>
+ <tr><td rowspan="2">湿生草本・水田雑草群落、谷密度10～20</td><td>道路密度多、主要道路あり</td><td id="cl6_85">85</td></tr>
+ <tr><td>道路密度中、主要道路なし</td><td id="cl6_86">86</td></tr>
+ <tr><td>NULL</td><td>&nbsp;</td><td id="cl3_99">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td id="cl6_99">-99</td></tr>
+</tbody></table>
+</div>
+<div id='legend-open'>凡例表示</div>
+<script src="js/rulis.js"></script>
+</body>
+
+</html>
